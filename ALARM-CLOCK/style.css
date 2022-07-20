@@ -1,0 +1,84 @@
+#text{
+    text-align: center;
+}
+
+#time{
+    text-align: center;
+}
+
+.butns-div{
+ 
+  margin-left: 11rem;
+  text-align: center;
+  
+}
+
+.butns{
+
+    text-decoration: none;
+    font-size: 19px;
+    color: #000000;
+    font-weight: bold;
+    padding: 2rem;
+    border: 3px solid #000000;
+    position: relative;
+   margin-right: 11rem;
+    top: 25px;
+    background-color: transparent;
+  
+
+   
+  }
+  
+    .butns::before,
+    .butns::after{
+      content: "";
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border: inherit;
+      transition: all .5s;
+    }
+  
+    .butns::before{
+      top: -14px;
+      left: -14px;
+      border-width: 3px 0 0 3px;
+  
+    }
+  
+    .butns::after{
+      bottom: -15px;
+      right: -15px;
+      border-width: 0 3px 3px 0;
+  
+    }
+    .butns:hover:before,
+    .butns:hover:after{
+  width: calc(100% + 27px);
+  height: calc(100% + 27px);
+  border: 3px solid #680000;
+  cursor: pointer;
+    }
+
+    .input{
+      margin-right: 1rem;
+      border: 2px solid #000000;
+      background-color: transparent;
+      font-size: 19px;
+      width: 50px;
+      height: 20px;
+    }
+
+    .imge{
+      margin-top:  10rem;
+      text-align: center;
+      
+    }
+
+    #img{
+      border-radius: 10px;
+      width: 500px;
+      height: 350px;
+    }
+

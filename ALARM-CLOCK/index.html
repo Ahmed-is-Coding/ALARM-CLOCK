@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+		<title>Alarm clock</title>
+		<link rel="stylesheet" href="style.css"/>
+		<meta charset='UFT-8' name='viewport' content='width=device-width, initial=scale=1.0' >
+    </head>
+    
+    <body id="backcolor" style="background-color: #98FB98;">
+		<br>
+		<br>
+		<h1  id="text">SET YOUR ALARM</h1>
+		
+		<h1 id="time" ></h1>
+    
+		<div class="inputs" style="text-align:center ;" >
+		 <input type="number" id="sethrs" class="input"> </input>
+		 <input type="number" id="setmin" class="input"> </input>
+		 <input type="number" id="setsec"  class="input">	</input>
+		</div>
+<br>
+
+		<div class="butns-div">
+			<button id="rest" class="butns">RESET</button>
+			<button id="set" class="butns">SET</button>
+		</div>
+		<br>
+
+		<div class="imge">
+			<img src="img1.jpg" id="img">
+		</div>
+		
+		
+	
+    <script>
+          
+		var setbuttun=0; 
+		var seth=0; 
+		var setm=0; 
+		var sets=0; 
+
+		var colors = [
+        "#FF69B4","#EE82EE", "#F4A460","#FFC0CB","#E6E6FA","#7FFFD4	","#00BFFF", "#DDA0DD"
+    ]
+    
+    var m = 0;
+    function colorChange() {
+
+        var body = document.getElementById("backcolor");
+
+        body.style.backgroundColor = colors[m];
+  m++;
+  
+  if(m > colors.length - 1) {
+    m = 0;
+  }
+}
+
+		document.getElementById("set").addEventListener("click",setAlarm);
+		document.getElementById("rest").onclick = function () { location.reload(); };
+	
+		var currentTime = setInterval(function(){
+		var sound = new Audio("sound.mp3");
+		const date = new Date();
+		var hours = date.getHours();
+		var minutes = date.getMinutes();
+		var seconds = date.getSeconds();
+	
+		document.getElementById("time").innerHTML  = hours + ":" + minutes + ":" + seconds 
+
+		if(seth == hours && setm == minutes && sets == seconds){
+			
+			document.getElementById('text').innerHTML="WAKE UP"
+			document.getElementById("img").src="img3.gif";
+			
+			sound.play();
+			var chaned =   setInterval(colorChange, 1000);
+		}
+	
+	}
+	,1000)
+
+	function setAlarm()
+	{
+		
+		 	
+	    setbuttun = document.getElementById('set').value;
+		seth = document.getElementById('sethrs').value;
+		setm = document.getElementById('setmin').value;
+		sets = document.getElementById('setsec').value;
+
+		document.getElementById("img").src="img2.jpg";
+		document.getElementById('text').innerHTML="GOOD NIGHT";
+
+
+	}
+
+               
+        </script>
+    </body>
+</html>
